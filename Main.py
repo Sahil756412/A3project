@@ -9,6 +9,7 @@
 #It will ask you again if you win
 
 #Load all modules
+from Gestures import *
 
 #Load all files
 
