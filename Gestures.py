@@ -1,5 +1,8 @@
 #Perform gesture according to situation
 
+import pandas as pd
+df=pd.read_csv('gestures.csv')
+
 #Takes three variables-result('w','l','t'),opponent(string),categ(string)
 #Outputs a string
 def perform_gesture(result,opponent,categ):
@@ -8,10 +11,10 @@ def perform_gesture(result,opponent,categ):
         return
 
     if result=='w':
-        print(gestures['win'][categ].format(opponent))
+        print(df[df['categ']==categ].iloc[0]['win'].format(opponent))
 
-    if result=='l':
-        print(gestures['lose'][categ].format(opponent))
+    elif result=='l':
+        print(df[df['categ']==categ].iloc[0]['lose'].format(opponent))
 
     else:
         print("""You and {} are rated the same level of {}.That's really interesting!
@@ -20,7 +23,7 @@ def perform_gesture(result,opponent,categ):
 
 def ester(result,opponent,categ):
     if result=='w' and opponent=='pushpanshu' and categ=='size':
-        print("Thats why he is do not want to marry.Confidence!")
+        print("Thats why he do not want to marry.Confidence!")
         return 1
 
     else:
