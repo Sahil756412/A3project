@@ -49,3 +49,6 @@ def set_valid_categ(valid_categ,chosen_categ):
     prev_categ=chosen_categ
     valid_categ=pop_elm(valid_categ,chosen_categ)
     return valid_categ
+
+
+def get_result:

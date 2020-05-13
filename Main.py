@@ -35,21 +35,24 @@ while True:
     valid_opponents = pop_elm(valid_opponents,opponent)
 
     #Take answer
-    chosen_categ=get_ans_categ(opponent,valid_categ)
-    valid_categ=set_valid_categ(valid_categ,chosen_categ)
+    while True:
+        chosen_categ=get_ans_categ(opponent,valid_categ)
+        valid_categ=set_valid_categ(valid_categ,chosen_categ)
 
+        #process it
+        result=get_result(contender,opponent)
+        if result != 'w' and result != 'l':
+            perform_gesture(result, opponent, chosen_categ)
+            continue
+        break
+    if result=='w'
+        print('You win')
+    else:
+        print('You lose')
+    perform_gesture(result, opponent, chosen_categ)
+    if len(valid_opponents)==0
+        break
 
-    #process it
-        #Compare
-
-        #If tie
-            #perform a gesture
-            #Ask again by rerunning a loop
-
-        #set the flag to win or loss
-
-    #Give Output-
-        #Give Result
-        #Perform Gesture
-
-#Give final Output
+print('Congratulations! You defeated all the opponents')
+print('Here, have this')
+print('c=3')
