@@ -1,7 +1,6 @@
 #Perform gesture according to situation
 
-import pandas as pd
-df=pd.read_csv('gestures.csv')
+from all_data import *
 
 #Takes three variables-result('w','l','t'),opponent(string),categ(string)
 #Outputs a string

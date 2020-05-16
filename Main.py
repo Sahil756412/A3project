@@ -9,50 +9,55 @@
 #It will ask you again if you win
 
 #Load all modules
-import pandas as pd
 import random
 from Gestures import *
 from functions import *
 
 #Load all files
-data=pd.read_csv('points_data.csv')
-categs=['smartness','sanity','gplpower','hawas','bookfetish','size']
-players=['sahil','pushpanshu']
+from all_data import *
 
 #Take input and check for keywords
 get_initiation_input()
 
 #Ask for name
 contender=get_contender()
+print(contender)
 
 #Get into loop
 valid_opponents=players.copy()
 valid_opponents=pop_elm(valid_opponents,contender)
 valid_categ=categs.copy()
+no_of_matches=0
 while True:
+    no_of_matches+=1
     #Give opponent
     opponent=random.choice(valid_opponents)
-    valid_opponents = pop_elm(valid_opponents,opponent)
+    valid_opponents = pop_elm(list(valid_opponents),opponent)
 
-    #Take answer
+    #Take answers
     while True:
         chosen_categ=get_ans_categ(opponent,valid_categ)
         valid_categ=set_valid_categ(valid_categ,chosen_categ)
 
         #process it
-        result=get_result(contender,opponent)
+        result=get_result(contender,opponent,chosen_categ)
         if result != 'w' and result != 'l':
             perform_gesture(result, opponent, chosen_categ)
             continue
         break
-    if result=='w'
+    if result=='w':
         print('You win')
     else:
         print('You lose')
     perform_gesture(result, opponent, chosen_categ)
-    if len(valid_opponents)==0
+    if len(valid_opponents)==0 or result=='l':
         break
 
-print('Congratulations! You defeated all the opponents')
+if result=='w':
+    print('Congratulations! You defeated all the opponents')
+else:
+    print('You defeated {} opponents'.format(no_of_matches))
 print('Here, have this')
 print('c=3')
+if result=='w':
+    print('anyways')
