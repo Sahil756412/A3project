@@ -10,14 +10,14 @@ def perform_gesture(result,opponent,categ):
         return
 
     if result=='w':
-        print(df[df['categ']==categ].iloc[0]['win'].format(opponent))
+        print(df[df['categ']==categ].iloc[0]['win'].format(opponent.capitalize()))
 
     elif result=='l':
-        print(df[df['categ']==categ].iloc[0]['lose'].format(opponent))
+        print(df[df['categ']==categ].iloc[0]['lose'].format(opponent.capitalize()))
 
     else:
         print("""You and {} are rated the same level of {}.That's really interesting!
-        Better go and kiss him after this.""".format(opponent,categ))
+        Better go and kiss him after this.""".format(opponent.capitalize(),categ))
 
 
 def ester(result,opponent,categ):

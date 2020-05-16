@@ -21,7 +21,6 @@ get_initiation_input()
 
 #Ask for name
 contender=get_contender()
-print(contender)
 
 #Get into loop
 valid_opponents=players.copy()
@@ -56,7 +55,7 @@ while True:
 if result=='w':
     print('Congratulations! You defeated all the opponents')
 else:
-    print('You defeated {} opponents'.format(no_of_matches))
+    print('You defeated {} opponents'.format(no_of_matches-1))
 print('Here, have this')
 print('c=3')
 if result=='w':
