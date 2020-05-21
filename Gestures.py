@@ -16,7 +16,7 @@ def perform_gesture(result,opponent,categ):
         print(df[df['categ']==categ].iloc[0]['win'].format(opponent.capitalize()))
 
     else:
-        print("""You and {} are rated the same level of {}.That's really interesting!
+        print("""You and {} are rated the same level in {}.That's really interesting!
         Better go and kiss him after this.""".format(opponent.capitalize(),categ))
 
 

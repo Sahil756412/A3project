@@ -12,6 +12,7 @@ def get_initiation_input():
 def get_contender():
     inp=input("Enter your name:")
     inp=inp.lower()
+    inp=inp.capitalize()
     if inp in players:
         return inp
     else:
@@ -45,7 +46,7 @@ def set_valid_categ(valid_categ,chosen_categ):
     global prev_categ
     global even_prev_categ
     if even_prev_categ != 'not assigned':
-        valid_categ=valid_categ.append(even_prev_categ)
+        valid_categ.append(even_prev_categ)
     even_prev_categ = prev_categ
     prev_categ=chosen_categ
     valid_categ=pop_elm(valid_categ,chosen_categ)
