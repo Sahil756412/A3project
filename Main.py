@@ -22,6 +22,12 @@ get_initiation_input()
 #Ask for name
 contender=get_contender()
 
+#Ask number of of opponents
+n_of_opps=ask_n_of_opps()
+
+#Ask difficulty
+difficulty=ask_difficulty()
+
 #Get into loop
 valid_opponents=players.copy()
 valid_opponents=pop_elm(valid_opponents,contender)
@@ -36,7 +42,7 @@ while True:
     #Take answers
     while True:
         chosen_categ=get_ans_categ(opponent,valid_categ)
-        valid_categ=set_valid_categ(valid_categ,chosen_categ)
+        valid_categ=set_valid_categ(valid_categ,chosen_categ,difficulty)
 
         #process it
         result=get_result(contender,opponent,chosen_categ)
@@ -45,15 +51,15 @@ while True:
             continue
         break
     if result=='w':
-        print('You win')
+        print('You win\n')
     else:
-        print('You lose')
+        print('You lose\n')
     perform_gesture(result, opponent, chosen_categ)
-    if len(valid_opponents)==0 or result=='l':
+    if len(valid_opponents)==0 or result=='l' or no_of_matches==n_of_opps:
         break
 
 if result=='w':
-    print('Congratulations! You defeated all the opponents')
+    print('Congratulations! You defeated all of the {} opponents\n'.format(n_of_opps))
 else:
     print('You defeated {} opponents'.format(no_of_matches-1))
 print('Here, have this')
